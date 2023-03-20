@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const NotesContainer =()=>{
     
+    const [char , setChar] =useState(0);
     const [idUser, setIdUser] = useState(0);
     const [inputs , setInputs ] = useState({
         title:"",
@@ -85,6 +86,10 @@ const NotesContainer =()=>{
         setInputs({...inputs, [e.target.name]:e.target.value});
     }
 
+    const lengthNote =(e)=>{
+        setChar(e.target.value.length);
+    }
+
     return(
         <>
         <Navbar/>
@@ -110,12 +115,14 @@ const NotesContainer =()=>{
                 type="text" />
                 
                <input 
-                onChange={(e)=>HandleChange(e)}
+                onChange={(e)=>{HandleChange(e); lengthNote(e)}}
                 className="rounded outline-none bg-slate-300 p-2 pb-10 m-2 border-yellow-50 border-2"
                 placeholder="Nota"
                 name="description"
                 id="description"
                 type="text" />
+
+                <p className="text-blue-500 font-bold text-xs">{char}/255</p>
                
 
                 <button 

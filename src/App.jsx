@@ -3,6 +3,7 @@ import { BrowserRouter , Routes ,Route} from "react-router-dom";
 import RegisterContainer from "./containers/RegisterContainer";
 import HomeContainer from "./containers/HomeContainer";
 import NotesContainer from "./containers/NotesContainer";
+import EditNoteContainer from "./containers/EditNoteContainer";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<LoginContainer/>}/>
         <Route path="/register" element={<RegisterContainer/>}/>
         <Route path="/myNotes" element={<NotesContainer/>}/>
+        <Route path="/editNote" element={<EditNoteContainer/>}/>
       </Routes>
     </BrowserRouter>
   );

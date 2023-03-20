@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NotesComponent =({title, description, id})=>{
 
     const [mensaje , setMensaje]= useState();
+    const navigate = useNavigate();
 
     const deleteTask =(id)=>{
         console.log(`Se ha eliminado la tarea ${id}`);
@@ -18,8 +20,19 @@ const NotesComponent =({title, description, id})=>{
         .catch((error)=> console.error(error))
     }
 
-    const editTask=(id)=>{
-    alert(`Por el momento la funcion "Editar Nota" aun no esta desarrollada. Funcionalidad pendiente. Editar la tarea con el id: ${id} aun no es posible.`)
+    const editTask=(id)=>{// tengo que traer por ID la data y elegir que editar y hacer una vista de un form con un placeholder o value que traiga de la db y actualizar la nota
+        localStorage.setItem("id_note",id);
+        navigate('/editNote');
+        // console.log(`Se ha editado la tarea ${id}`);
+        // axios.put(`http://localhost:3500/notes/${id}`).then(({data})=>{
+        //     console.log(data);
+        //     setMensaje("Mensaje editado correctamente!");
+        //     setTimeout(()=>{
+        //         setMensaje("");
+        //         window.location.reload(false); 
+        //     },1500) 
+        // })
+        // .catch((error)=> console.error(error))
     }
 
     return(
