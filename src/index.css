@@ -19,7 +19,16 @@ code {
     monospace;
 }
 
-
+/*SCROLL*/
+::-webkit-scrollbar{
+  background-color: #fff;
+  width: 7px;
+  cursor: none;
+}
+::-webkit-scrollbar-thumb{
+   background: linear-gradient(#134e4a, #059669);
+}
+/*SCROLL*/
 .container--custom{
   display: flex;
   align-items: center;
