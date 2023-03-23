@@ -10,7 +10,7 @@ const RedirectNotes =()=>{
     }
 
         return(
-            <div className="bg-white rounded p-6">
+            <div className="bg-white rounded p-6 sm:h-auto h-screen">
                 <h2 className="text-emerald-400 font-bold text-2xl mb-3"
                 >Ya estas logeado!</h2>
                 <p className="text-sm">Ya haz iniciado sesion con tu usuario. Dirigete a la seccion "My notes" para ver tus notas.</p>

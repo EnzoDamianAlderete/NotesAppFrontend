@@ -62,8 +62,9 @@ const EditNote =()=>{
     }
 
     return(
-        <form 
-            className="bg-slate-200 flex flex-col flex-wrap rounded justify-center align-middle p-4 md:w-96 self-center "
+        <div className=" pt-1 mb-1 h-screen flex flex-col align-middle justify-center">
+            <form 
+            className="bg-slate-200 flex flex-col flex-wrap rounded p-4 w-96 self-center"
             onSubmit={(e)=>onSubmitForm(e)}
             >
                 
@@ -97,6 +98,10 @@ const EditNote =()=>{
                 Editar
                 </button>
             </form>
+
+            <img className="p-4 max-w-70 h-80" src={require('../assets/backgrounds/editImg.svg').default} alt="edit" />
+        </div>
+        
     )
 }
 
