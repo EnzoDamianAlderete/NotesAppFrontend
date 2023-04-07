@@ -16,7 +16,7 @@ const EditNote =()=>{
             console.log(`la info es`,data);
             setTitle(data.title);
             setDescription(data.description);
-            setChar(data.description.length)
+            setChar(data.description.length);
         })
         .catch((error)=> console.error(error));
     },[]);
@@ -35,6 +35,7 @@ const EditNote =()=>{
               await axios.put(`http://localhost:3500/notes/${id_note}`,Note).then((res)=>{
                   const {data}= res;
                   setMensaje(data.mensaje);//msj: nota creada correctamente
+                  alert("Nota editada correctamente!");
                   setTimeout(()=>{
                       setMensaje("");
                   },2000);
@@ -79,13 +80,16 @@ const EditNote =()=>{
                 id="title"
                 type="text" />
                 
-               <input 
+               <textarea 
                 onChange={(e)=>{HandleChangeDescription(e); lengthNote(e)}}
                 className="rounded outline-none bg-slate-300 p-2 pb-10 m-2 border-yellow-50 border-2"
                 placeholder="Nota"
                 name="description"
                 value={description}
                 id="description"
+                rows="5"
+                maxLength={255}
+                require
                 type="text" />
 
                 <p className="text-blue-500 font-bold text-xs">{char}/255</p>

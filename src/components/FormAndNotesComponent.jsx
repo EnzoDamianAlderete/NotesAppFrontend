@@ -111,13 +111,15 @@ const FormAndNotesComponent =()=>{
                 type="text"
                 required />
                 
-               <input 
+               <textarea 
                 onChange={(e)=>{HandleChange(e); lengthNote(e)}}
                 className="rounded outline-none bg-slate-300 p-2 pb-10 m-2 border-yellow-50 border-2"
                 placeholder="Nota"
                 name="description"
                 id="description"
                 type="text"
+                rows="5"
+                maxLength={255}
                 required />
 
                 <p className="text-blue-500 font-bold text-xs">{char}/255</p>

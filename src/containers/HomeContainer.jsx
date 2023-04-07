@@ -36,7 +36,7 @@ const HomeContainer =()=>{
 
                 <div className="flex justify-center align-middle md:flex-nowrap flex-wrap">
 
-                    <p className="p-10 text-lg text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione cupiditate voluptatum voluptates minus vitae nam quos atque sunt vero a ex, nesciunt ut iste. Eius, est commodi. Natus ratione accusamus enim distinctio molestias. Quis nulla temporibus libero quas dignissimos veniam ex nostrum.</p>
+                    <p className="p-10 text-justify  text-lg font-semibold">Simplemente creándote una cuenta podrás acceder a la posibilidad de gestionar tus propias notas. Para crearte una cuenta deberás ingresar datos sencillos como tu nombre, nombre de usuario, email e ingresar una contraseña. Luego cuando inicies sesión podrás crear tus notas.</p>
 
                     <img className="max-w-xs p-8" src={require('../assets/backgrounds/notes-wallpaper2.svg').default} alt="" />
                 </div>

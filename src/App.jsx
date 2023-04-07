@@ -4,6 +4,7 @@ import RegisterContainer from "./containers/RegisterContainer";
 import HomeContainer from "./containers/HomeContainer";
 import NotesContainer from "./containers/NotesContainer";
 import EditNoteContainer from "./containers/EditNoteContainer";
+import Page404 from "./components/Page404";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<RegisterContainer/>}/>
         <Route path="/myNotes" element={<NotesContainer/>}/>
         <Route path="/editNote" element={<EditNoteContainer/>}/>
+        <Route path="*" element={<Page404/>}/>
       </Routes>
     </BrowserRouter>
   );
