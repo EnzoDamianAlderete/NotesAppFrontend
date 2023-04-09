@@ -16,8 +16,9 @@ const HomeContainer =()=>{
             <div className="flex  flex-wrap justify-center">
                 <div className="flex justify-center md:flex-nowrap flex-wrap">
                     <img className="max-w-xs p-4" src={require('../assets/backgrounds/notes-wallpaper.svg').default} alt="" />
-                    <p className="p-10 text-lg text-justify font-semibold">En esta app web podras guardar todas las notas que quieras, cada nota con un titulo y una descripción que contara con un maximo de 255 caracteres.
-                    Esta web cuenta con un diseño respovise. lo que significa que puedes consultar, editar o eliminar tus notas cuando quieras tu computadora, netbok, tablet o celular sin nigun problema!.
+                    <p className="p-10 text-lg text-justify font-semibold">¡Bienvenido/a al sitio web de creación de notas más innovador del mercado! Aquí podrás crear, editar y eliminar tus notas de una manera rápida y sencilla. ¿Te imaginas tener tus ideas organizadas en un solo lugar? Con nosotros es posible.
+
+                    ¿Cansado/a de tener tus pensamientos en diferentes lugares y plataformas? Nuestro sitio web es la solución ideal para ti. Con nuestra herramienta podrás crear notas en cuestión de segundos y tenerlas siempre disponibles para cuando las necesites. ¡Nunca más perderás una gran idea por no tener dónde escribirla!
                     </p>
                 </div>
 
