@@ -124,7 +124,13 @@ const FormAndNotesComponent =()=>{
 
                 <p className="text-blue-500 font-bold text-xs">{char}/255</p>
                
-
+                <div className="flex gap-2 pt-4">
+                    <p>Seleccina el color de nota: </p>
+                    <button className="rounded-full" style={{ backgroundColor: '#F7C8E0', padding: '1rem' }} onClick={(e) => { e.target.preventDefault(); console.log('rosa')}}></button>
+                    <button className="rounded-full" style={{ backgroundColor: '#FFF6BD', padding: '1rem' }}  onClick={() => console.log('amarillo')}></button>
+                    <button className="rounded-full" style={{ backgroundColor: '#B4E4FF', padding: '1rem' }}  onClick={() => console.log('celeste')}></button>
+                    <button className="rounded-full" style={{ backgroundColor: '#B5F1CC', padding: '1rem' }}  onClick={() => console.log('verde')}></button>
+                </div>
                 <button 
                 
                 className="bg-cyan-600 rounded p-1 text-white w-20 self-end m-2 border-yellow-50 font-bold hover:bg-cyan-700"

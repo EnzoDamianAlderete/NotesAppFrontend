@@ -14,6 +14,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* ---------root para bg de las notas----------:
+rosa #F7C8E0
+amarillo #FFF6BD
+celeste #B4E4FF
+verde #B5F1CC */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
