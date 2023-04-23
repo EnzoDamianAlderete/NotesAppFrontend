@@ -7,12 +7,13 @@ import { AppContext } from "../context/AppContext";
 
 
 const FormAndNotesComponent =()=>{
-    const {bgColor} = useContext(AppContext);
+    const {bgColor,setBgColor} = useContext(AppContext);
     const [char , setChar] =useState(0);
     const [idUser, setIdUser] = useState(0);
     const [inputs , setInputs ] = useState({
         title:"",
         description:"",
+        bgColor,
         UserId:idUser,
     });
     const [setMensaje ] = useState();
@@ -60,6 +61,7 @@ const FormAndNotesComponent =()=>{
             const Note = {
                 title,
                 description,
+                bgColor,
                 UserId:idUser,
             };
             console.log(Note);
@@ -140,7 +142,7 @@ const FormAndNotesComponent =()=>{
              {notes.map((elem)=>{
                 return(
                     <span key={elem.id}>
-                        <NotesComponent id={elem.id} title={elem.title} description={elem.description} />
+                        <NotesComponent id={elem.id} title={elem.title} description={elem.description} bgColor={elem.bgColor} />
                     </span>
                 );
             })} 

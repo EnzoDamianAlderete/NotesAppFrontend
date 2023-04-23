@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NotesComponent =({title, description, id})=>{
+const NotesComponent =({title, description, bgColor, id})=>{
 
     const [mensaje , setMensaje]= useState();
     const navigate = useNavigate();
@@ -36,7 +36,7 @@ const NotesComponent =({title, description, id})=>{
     }
 
     return(
-        <div className=" bg-yellow-200 p-4 rounded-lg md:w-96">
+        <div style={{backgroundColor:bgColor}} className=" bg-yellow-200 p-4 rounded-lg md:w-96">
             <p>📌</p>
             <h3 className=" font-bold">{title}</h3>
             <p className=" text-justify p-2">{description}</p>
