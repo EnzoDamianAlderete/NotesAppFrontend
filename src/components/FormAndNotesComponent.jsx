@@ -16,7 +16,7 @@ const FormAndNotesComponent =()=>{
         bgColor,
         UserId:idUser,
     });
-    const [setMensaje ] = useState();
+    const [mensaje,setMensaje ] = useState('');
     const [name, setName] = useState();
     const [notes, setNotes] = useState([]);
     const token = localStorage.getItem("token");
@@ -67,11 +67,9 @@ const FormAndNotesComponent =()=>{
             console.log(Note);
              await axios.post('http://localhost:3500/notes',Note).then((res)=>{
                  const {data}= res;
-                 setMensaje(data.mensaje);//msj: nota creada correctamente
-                 setInputs({ title:"",description:""});
-                 setTimeout(()=>{
-                     setMensaje("");
-                 },2000);
+                 alert("Nuevo mensaje agregado!");//msj: nota creada correctamente
+                 setInputs({ title:"",description:""});  
+                window.location.reload(true); 
              }).catch((error)=>{
                  console.log(error);
                  setMensaje("Hubo un error");
@@ -80,8 +78,7 @@ const FormAndNotesComponent =()=>{
                  },2000);
              });
             
-            }
-            window.location.reload(false);   
+            }  
         }
 
     const HandleChange =(e)=>{
