@@ -5,10 +5,12 @@ import HomeContainer from "./containers/HomeContainer";
 import NotesContainer from "./containers/NotesContainer";
 import EditNoteContainer from "./containers/EditNoteContainer";
 import Page404 from "./components/Page404";
+import AppContextProvider from "./context/AppContext";
 
 
 function App() {
   return (
+    <AppContextProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeContainer/>}/>
@@ -19,6 +21,7 @@ function App() {
         <Route path="*" element={<Page404/>}/>
       </Routes>
     </BrowserRouter>
+    </AppContextProvider>
   );
 }
 

@@ -13,7 +13,6 @@ const EditNote =()=>{
     useEffect(()=>{
         const id_note = localStorage.getItem("id_note")
         axios.get(`http://localhost:3500/notes/${id_note}`).then(({data})=> {
-            console.log(`la info es`,data);
             setTitle(data.title);
             setDescription(data.description);
             setChar(data.description.length);
@@ -63,7 +62,7 @@ const EditNote =()=>{
     }
 
     return(
-        <div className=" pt-1 mb-1 h-screen flex flex-col align-middle justify-center">
+        <div className=" pt-1 mt-4 mb-1 h-screen flex flex-col align-middle justify-center">
             <form 
             className="bg-slate-200 flex flex-col flex-wrap rounded p-4 w-96 self-center"
             onSubmit={(e)=>onSubmitForm(e)}

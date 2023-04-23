@@ -1,11 +1,13 @@
 import NotesComponent from "../components/NotesComponent";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ColorPickerComponent from "./ColorPickerComponent";
+import { AppContext } from "../context/AppContext";
 
 
 const FormAndNotesComponent =()=>{
-
+    const {bgColor} = useContext(AppContext);
     const [char , setChar] =useState(0);
     const [idUser, setIdUser] = useState(0);
     const [inputs , setInputs ] = useState({
@@ -13,7 +15,7 @@ const FormAndNotesComponent =()=>{
         description:"",
         UserId:idUser,
     });
-    const [mensaje , setMensaje ] = useState();
+    const [setMensaje ] = useState();
     const [name, setName] = useState();
     const [notes, setNotes] = useState([]);
     const token = localStorage.getItem("token");
@@ -96,6 +98,7 @@ const FormAndNotesComponent =()=>{
             <p>Aqui podras ver todas tus notas. Puedes crear, editar o eliminar tus notas cuando quieras.</p>
 
             <form 
+            style={{ backgroundColor: bgColor}}
             className="bg-slate-200 flex flex-col flex-wrap rounded justify-center align-middle p-4 md:w-96 self-center "
             onSubmit={(e)=>onSubmitForm(e)}
             >
@@ -124,13 +127,7 @@ const FormAndNotesComponent =()=>{
 
                 <p className="text-blue-500 font-bold text-xs">{char}/255</p>
                
-                <div className="flex gap-2 pt-4">
-                    <p>Seleccina el color de nota: </p>
-                    <button className="rounded-full" style={{ backgroundColor: '#F7C8E0', padding: '1rem' }} onClick={(e) => { e.target.preventDefault(); console.log('rosa')}}></button>
-                    <button className="rounded-full" style={{ backgroundColor: '#FFF6BD', padding: '1rem' }}  onClick={() => console.log('amarillo')}></button>
-                    <button className="rounded-full" style={{ backgroundColor: '#B4E4FF', padding: '1rem' }}  onClick={() => console.log('celeste')}></button>
-                    <button className="rounded-full" style={{ backgroundColor: '#B5F1CC', padding: '1rem' }}  onClick={() => console.log('verde')}></button>
-                </div>
+                <ColorPickerComponent/>
                 <button 
                 
                 className="bg-cyan-600 rounded p-1 text-white w-20 self-end m-2 border-yellow-50 font-bold hover:bg-cyan-700"

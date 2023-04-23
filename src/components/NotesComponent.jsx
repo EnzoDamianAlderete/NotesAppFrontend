@@ -36,7 +36,7 @@ const NotesComponent =({title, description, id})=>{
     }
 
     return(
-        <div className=" bg-yellow-200 p-4 rounded-lg w-96">
+        <div className=" bg-yellow-200 p-4 rounded-lg md:w-96">
             <p>📌</p>
             <h3 className=" font-bold">{title}</h3>
             <p className=" text-justify p-2">{description}</p>
