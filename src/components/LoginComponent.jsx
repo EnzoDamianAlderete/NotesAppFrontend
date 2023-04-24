@@ -9,6 +9,7 @@ const LoginComponent =()=>{
         password:""
     });
     const [mensaje, setMensaje ]=useState();
+    const [mensajeCorrect,setMensajeCorrect] = useState();
     const [loading, setLoading ] = useState(false);
     const navigate = useNavigate();
     const { email , password } = inputs;
@@ -35,7 +36,7 @@ const LoginComponent =()=>{
              setLoading(true);
              await axios.post('http://localhost:3500/login',User).then((res)=>{
                  const {data} = res;
-                 setMensaje(data.mensaje);
+                 setMensajeCorrect(data.mensaje);
                  console.log(data);
                  setTimeout(()=>{
                     setMensaje("");
@@ -91,6 +92,7 @@ const LoginComponent =()=>{
                 </form>
                 {loading && <div className="bg-blue-500 mt-2 text-cyan-50 font-bold p-3 rounded-lg" >Cargando...</div>}
                 {mensaje && <div className="bg-red-500 mt-2 text-cyan-50 font-bold p-3 rounded-lg" >{mensaje}</div>}
+                {mensajeCorrect && <div className="bg-emerald-300 mt-2 text-cyan-50 font-bold p-3 rounded-lg">{mensajeCorrect}</div>}
             </div>
             
 
