@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ColorPickerComponent from "./ColorPickerComponent";
+import { AppContext } from "../context/AppContext";
 
 const EditNote =()=>{
 
     const [char,setChar] = useState(0);
     const [title , setTitle] = useState();
     const [description , setDescription] = useState();
+    const {bgColor,setBgColor} = useContext(AppContext);
     const [mensaje , setMensaje ] = useState();
     const navigate = useNavigate();
 
@@ -28,8 +31,8 @@ const EditNote =()=>{
              const Note = {
                  title,
                  description,
+                 bgColor,
              };
-             console.log(Note);
              const id_note = localStorage.getItem("id_note")
               await axios.put(`http://localhost:3500/notes/${id_note}`,Note).then((res)=>{
                   const {data}= res;
@@ -62,8 +65,9 @@ const EditNote =()=>{
     }
 
     return(
-        <div className=" pt-1 mt-4 mb-1 h-screen flex flex-col align-middle justify-center">
+        <div className=" pt-1 mt-10 mb-1 h-screen flex flex-col align-middle justify-center">
             <form 
+            style={{ backgroundColor: bgColor}}
             className="bg-slate-200 flex flex-col flex-wrap rounded p-4 w-96 self-center"
             onSubmit={(e)=>onSubmitForm(e)}
             >
@@ -93,7 +97,7 @@ const EditNote =()=>{
 
                 <p className="text-blue-500 font-bold text-xs">{char}/255</p>
                
-
+                <ColorPickerComponent/>
                 <button 
                 
                 className="bg-cyan-600 rounded p-1 text-white w-20 self-end m-2 border-yellow-50 font-bold hover:bg-cyan-700"
@@ -102,7 +106,7 @@ const EditNote =()=>{
                 </button>
             </form>
 
-            <img className="p-4 max-w-70 h-80" src={require('../assets/backgrounds/editImg.svg').default} alt="edit" />
+            <img className="p-4 max-w-70 h-80 pb-12" src={require('../assets/backgrounds/editImg.svg').default} alt="edit" />
         </div>
         
     )

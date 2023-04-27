@@ -11,7 +11,7 @@ const HomeContainer =()=>{
         <div className="p-10 home ">
             <h1 className="text-2xl font-bold text-center text-emerald-900">My NotesApp</h1>
             <h3 className="text-xl font-bold text-center">Bienvendio a My NotesApp!</h3>
-            <p className="text-center">Tu app web para guardar tus notas personales, profecionales o lo que quieras esxribir.</p>
+            <p className="text-center">Tu app web para guardar tus notas personales, profesionales o lo que quieras escribir.</p>
 
             <div className="flex  flex-wrap justify-center">
                 <div className="flex justify-center md:flex-nowrap flex-wrap">

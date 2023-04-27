@@ -72,13 +72,13 @@ const RegisterComponent =()=>{
         <div className="flex flex-col-reverse  sm:grid grid-cols-1 sm:grid-cols-3 login--component m-4 shadow-xl">
 
             <div className=" toLoginClass text-blue-100 p-8 sm:rounded-l-lg rounded-b-lg">
-                <h2 className="text-slate-200 font-bold text-2xl">Ya tienes una cuenta?</h2>
-                <p>Inicia sesion para acceder a tus notas.</p>
+                <h2 className="text-slate-200 font-bold text-2xl">¿Ya tienes una cuenta?</h2>
+                <p>¡Inicia sesión para acceder a tus notas!</p>
 
                 <img className="p-4 max-w-70 h-40 self-center" id="imgToRegister" src={require('../assets/backgrounds/ToLoginImg.svg').default} alt="regiter" />
 
                 <Link to={'/login'} className="font-bold  py-2 px-10 border-solid border-slate-200 border-2  rounded-2xl hover:bg-emerald-600 ">
-                    Iniciar sesion
+                    Iniciar sesión
                 </Link>
 
             </div>
@@ -88,7 +88,7 @@ const RegisterComponent =()=>{
             <path fillRule="evenodd" d="M16 9a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-2 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" clipRule="evenodd"></path>
             <path fillRule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1ZM3 12c0 2.09.713 4.014 1.908 5.542A8.986 8.986 0 0 1 12.065 14a8.984 8.984 0 0 1 7.092 3.458A9 9 0 1 0 3 12Zm9 9a8.963 8.963 0 0 1-5.672-2.012A6.992 6.992 0 0 1 12.065 16a6.991 6.991 0 0 1 5.689 2.92A8.964 8.964 0 0 1 12 21Z" clipRule="evenodd"></path>
             </svg>
-                <h2 className="text-3xl font-bold p-2 text-emerald-500">Bienvenido!</h2>
+                <h2 className="text-3xl font-bold p-2 text-emerald-500">Bienvenid@!</h2>
                 <p>Ingresa tus datos para crear una cuenta.</p>
                 <form onSubmit={(e)=>onSubmit(e)} 
                     className="flex col-auto flex-wrap justify-center" >

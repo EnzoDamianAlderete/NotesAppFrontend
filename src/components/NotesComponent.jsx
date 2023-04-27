@@ -8,10 +8,8 @@ const NotesComponent =({title, description, bgColor, id})=>{
     const navigate = useNavigate();
 
     const deleteTask =(id)=>{
-        console.log(`Se ha eliminado la tarea ${id}`);
         axios.delete(`http://localhost:3500/notes/${id}`).then(({data})=>{
-            console.log(data);
-            setMensaje("Mensaje elimnado correctamente!");
+            setMensaje("Mensaje eliminado correctamente!");
             setTimeout(()=>{
                 setMensaje("");
                 window.location.reload(false); 
@@ -23,9 +21,9 @@ const NotesComponent =({title, description, bgColor, id})=>{
     const editTask=(id)=>{// tengo que traer por ID la data y elegir que editar y hacer una vista de un form con un placeholder o value que traiga de la db y actualizar la nota
         localStorage.setItem("id_note",id);
         navigate('/editNote');
-        // console.log(`Se ha editado la tarea ${id}`);
+        // (`Se ha editado la tarea ${id}`);
         // axios.put(`http://localhost:3500/notes/${id}`).then(({data})=>{
-        //     console.log(data);
+        //     (data);
         //     setMensaje("Mensaje editado correctamente!");
         //     setTimeout(()=>{
         //         setMensaje("");

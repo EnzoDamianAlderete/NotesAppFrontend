@@ -20,8 +20,6 @@ const LoginComponent =()=>{
 
     const onSubmit = async(e)=>{
         e.preventDefault();
-        console.log(email)
-        console.log(password)
          if(email===""  || password===""){
              setMensaje("Por favor complete todos los campos");
              setTimeout(()=>{
@@ -32,12 +30,10 @@ const LoginComponent =()=>{
                  email,
                  password
              }
-             console.log(User);
              setLoading(true);
              await axios.post('http://localhost:3500/login',User).then((res)=>{
                  const {data} = res;
                  setMensajeCorrect(data.mensaje);
-                 console.log(data);
                  setTimeout(()=>{
                     setMensaje("");
                     localStorage.setItem("token",data?.user.token);
@@ -64,7 +60,7 @@ const LoginComponent =()=>{
                 <path fillRule="evenodd" d="m3 5 9-4 9 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5Zm3 8 4 4 8-8-1.41-1.42L10 14.17l-2.59-2.58L6 13Z" clipRule="evenodd"></path>
                 </svg>
                 <h2 className="text-3xl font-bold p-2 text-emerald-500">Hola de nuevo!</h2>
-                <p>Ingresa tus datos para iniciar sesion y ver tus notas.</p>
+                <p>Ingresa tus datos para iniciar sesión y ver tus notas.</p>
                 <form onSubmit={(e)=>onSubmit(e)} className="flex col-auto flex-wrap justify-center" >
                     <input 
                     type="email"
@@ -92,13 +88,13 @@ const LoginComponent =()=>{
                 </form>
                 {loading && <div className="bg-blue-500 mt-2 text-cyan-50 font-bold p-3 rounded-lg" >Cargando...</div>}
                 {mensaje && <div className="bg-red-500 mt-2 text-cyan-50 font-bold p-3 rounded-lg" >{mensaje}</div>}
-                {mensajeCorrect && <div className="bg-emerald-300 mt-2 text-cyan-50 font-bold p-3 rounded-lg">{mensajeCorrect}</div>}
+                {mensajeCorrect && <div className="bg-emerald-500 mt-2 text-cyan-50 font-bold p-3 rounded-lg">{mensajeCorrect}</div>}
             </div>
             
 
             <div className="toRegisterClass text-blue-100 p-8 sm:rounded-r-lg rounded-b-lg">
-                <h2 className="text-slate-200 font-bold text-2xl">Aun no tiene cuenta?</h2>
-                <p>Create una cuenta para usar nuestro sitio web.</p>
+                <h2 className="text-slate-200 font-bold text-2xl">¿Aún no tienes una cuenta?</h2>
+                <p>¡Crea una cuenta para usar nuestro sitio web!</p>
 
                 <img className="p-4 max-w-70 h-40 self-center" id="imgToRegister" src={require('../assets/crearCuenta.svg').default} alt="login" />
 

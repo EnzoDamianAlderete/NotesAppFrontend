@@ -1,13 +1,13 @@
 import NotesComponent from "../components/NotesComponent";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import ColorPickerComponent from "./ColorPickerComponent";
 import { AppContext } from "../context/AppContext";
 
 
 const FormAndNotesComponent =()=>{
-    const {bgColor,setBgColor} = useContext(AppContext);
+    const {bgColor} = useContext(AppContext);
     const [char , setChar] =useState(0);
     const [idUser, setIdUser] = useState(0);
     const [inputs , setInputs ] = useState({
@@ -21,8 +21,7 @@ const FormAndNotesComponent =()=>{
     const [notes, setNotes] = useState([]);
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
-    const {id} = useParams();
-    const { title , description ,UserId } = inputs;
+    const { title , description } = inputs;
     useEffect(()=>{
         if(token){
             axios.get(`http://localhost:3500/user`,{
@@ -64,9 +63,7 @@ const FormAndNotesComponent =()=>{
                 bgColor,
                 UserId:idUser,
             };
-            console.log(Note);
              await axios.post('http://localhost:3500/notes',Note).then((res)=>{
-                 const {data}= res;
                  alert("Nuevo mensaje agregado!");//msj: nota creada correctamente
                  setInputs({ title:"",description:""});  
                 window.location.reload(true); 
@@ -91,10 +88,10 @@ const FormAndNotesComponent =()=>{
     return(
         <>
         <div className=" flex flex-col col-auto gap-1 flex-wrap p-4 text-center min-h-screen">
-        {name ? <h2 className="text-2xl font-bold">Bienvenido <span className="text-emerald-700">{name}</span> es un gusto verte de nuevo por aqui!</h2> : <h2 className="text-2xl font-bold"> Bienvenido a NotesApp, tu app para crear notas.</h2>}
+        {name ? <h2 className="text-2xl font-bold">¡Bienvenid@ <span className="text-emerald-700">{name}</span>, es un gusto verte de nuevo por aquí!</h2> : <h2 className="text-2xl font-bold"> Bienvenid@ a NotesApp, tu app para crear notas.</h2>}
 
             
-            <p>Aqui podras ver todas tus notas. Puedes crear, editar o eliminar tus notas cuando quieras.</p>
+            <p>Aquí podrás ver todas tus notas. Puedes crear, editar o eliminar tus notas cuando quieras.</p>
 
             <form 
             style={{ backgroundColor: bgColor}}
@@ -157,7 +154,7 @@ const FormAndNotesComponent =()=>{
                     <path d="M13 4.008a1 1 0 1 0-2 0l-.003 8.003a1 1 0 0 0 2 0L13 4.009Z"></path>
                     <path d="M4 12.993c0-2.21.895-4.21 2.343-5.657L7.757 8.75a6 6 0 1 0 8.485 0l1.415-1.414A8 8 0 1 1 4 12.993Z"></path>
                     </svg>
-                Cerrar sesion
+                Cerrar sesión
             </button>
             </div>}
             </>
