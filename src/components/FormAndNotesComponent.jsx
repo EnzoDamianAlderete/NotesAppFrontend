@@ -24,7 +24,7 @@ const FormAndNotesComponent =()=>{
     const { title , description } = inputs;
     useEffect(()=>{
         if(token){
-            axios.get(`http://localhost:3500/user`,{
+            axios.get(`${process.env.REACT_APP_API_URI}/user`,{
                 headers:{
                     token:token,
                 },
@@ -37,7 +37,7 @@ const FormAndNotesComponent =()=>{
     },[token]);
 
      useEffect(()=>{
-          axios.get(`http://localhost:3500/users/${idUser}/notes`)
+          axios.get(`${process.env.REACT_APP_API_URI}/users/${idUser}/notes`)
          .then(({data})=>{
              setNotes([...data.notes]);
          })
@@ -63,7 +63,7 @@ const FormAndNotesComponent =()=>{
                 bgColor,
                 UserId:idUser,
             };
-             await axios.post('http://localhost:3500/notes',Note).then((res)=>{
+             await axios.post(`${process.env.REACT_APP_API_URI}/notes`,Note).then((res)=>{
                  alert("Nuevo mensaje agregado!");//msj: nota creada correctamente
                  setInputs({ title:"",description:""});  
                 window.location.reload(true); 

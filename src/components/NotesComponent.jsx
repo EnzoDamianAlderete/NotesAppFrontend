@@ -8,7 +8,7 @@ const NotesComponent =({title, description, bgColor, id})=>{
     const navigate = useNavigate();
 
     const deleteTask =(id)=>{
-        axios.delete(`http://localhost:3500/notes/${id}`).then(({data})=>{
+        axios.delete(`${process.env.REACT_APP_API_URI}/notes/${id}`).then(({data})=>{
             setMensaje("Mensaje eliminado correctamente!");
             setTimeout(()=>{
                 setMensaje("");

@@ -24,12 +24,12 @@ const RegisterComponent =()=>{
     const onSubmit = async(e)=>{
         e.preventDefault();
         if( password === repeatPassword){
-            if(name ==="" && email ==="" && password ===''){
+            if(name === null || email === null || password === null){
                 setMensaje("Por favor complete todos los campos");
                 setTimeout(()=>{
                     setMensaje("");
                 },3000)
-            }else if (name !=="" && email !=="" && password !==''){
+            }else if (name !==null && email !==null && password !==null){
                 const User = {
                     name,
                     userName,
@@ -37,7 +37,7 @@ const RegisterComponent =()=>{
                     password
                 };
                 setLoading(true);
-                await axios.post('http://localhost:3500/users',User) 
+                await axios.post(`${process.env.REACT_APP_API_URI}/users`,User) 
                 .then((res)=>{
                     const {data}= res;
                     setMensaje(data.mensaje);//msj: usuario creado correctamente

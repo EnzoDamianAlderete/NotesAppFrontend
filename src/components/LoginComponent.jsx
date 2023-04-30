@@ -31,7 +31,7 @@ const LoginComponent =()=>{
                  password
              }
              setLoading(true);
-             await axios.post('http://localhost:3500/login',User).then((res)=>{
+             await axios.post(`${process.env.REACT_APP_API_URI}/login`,User).then((res)=>{
                  const {data} = res;
                  setMensajeCorrect(data.mensaje);
                  setTimeout(()=>{
